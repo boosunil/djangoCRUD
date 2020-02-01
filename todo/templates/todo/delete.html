@@ -1,0 +1,10 @@
+{% extends 'todo/base.html' %} {% block content %}
+
+<p style="margin-top: 70px;">Are you sure you want to delete: {{item}}</p>
+<a class="btn btn-info mb-1" href="{% url 'todo-home' %}">Cancel</a>
+<form method="POST">
+  {% csrf_token %}
+  <input class="btn btn-danger" type="submit" name="confirm" />
+</form>
+
+{% endblock content %}

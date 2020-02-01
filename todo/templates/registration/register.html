@@ -1,0 +1,13 @@
+{% extends 'todo/base.html' %} {% block content %}
+
+<h1 style="color: red;margin-top: 70px;">Registration Form</h1>
+
+<form method="POST" action="{% url 'register' %}">
+  {% csrf_token %} {% if form.errors %}
+  <p>There is something wrong with your details</p>
+  {% endif %} {{form.as_p}}
+
+  <input type="submit" value="register" />
+</form>
+
+{% endblock %}

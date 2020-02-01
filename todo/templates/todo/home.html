@@ -1,0 +1,15 @@
+{% extends 'todo/base.html' %} {% block content %}
+
+<h1 style="color: red;margin-top: 70px;">Todo List</h1>
+
+<form method="POST" action="/">
+  {% csrf_token %} {{form.title}}
+
+  <input class="btn-sm btn-info" type="submit" name="create todo" />
+</form>
+{% for todo in todos %}
+<h5>{{todo}}</h5>
+<a class="btn-sm btn-info" href="{% url 'todo-update' todo.id %}">Update</a>
+<a class="btn-sm btn-danger" href="{% url 'todo-delete' todo.id %}">Delete</a>
+
+{% endfor %} {% endblock content %}

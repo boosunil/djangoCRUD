@@ -1,0 +1,9 @@
+{% extends 'todo/base.html' %} {% block content %}
+
+<h1 style="color: red;margin-top: 70px;">Update TodoList</h1>
+
+<form method="POST" action="">
+  {% csrf_token %} {{form}}
+  <input class="btn-sm btn-info" type="submit" name="update-todo" />
+</form>
+{% endblock %}
